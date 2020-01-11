@@ -6695,3 +6695,172 @@ Binding(CTRL+F,
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.mule.tooling.contexts.mulePropertiesEditor,,,system)
+
+!ENTRY org.mule.tooling.core 4 0 2020-01-11 14:47:09.228
+!MESSAGE Could not terminate launch dronemonitoring
+!STACK 0
+java.lang.RuntimeException: Could not terminate launch dronemonitoring
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.terminateLaunchSync(MuleRuntimeLaunchDelegate.java:800)
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.removeAllMuleLaunchesBut(MuleRuntimeLaunchDelegate.java:749)
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.resolveConflictingLaunches(MuleRuntimeLaunchDelegate.java:670)
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.launch(MuleRuntimeLaunchDelegate.java:316)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY org.mule.tooling.core 4 0 2020-01-11 14:47:09.251
+!MESSAGE Could not terminate launch dronemonitoring
+!STACK 0
+java.lang.RuntimeException: Could not terminate launch dronemonitoring
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.terminateLaunchSync(MuleRuntimeLaunchDelegate.java:800)
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.removeAllMuleLaunchesBut(MuleRuntimeLaunchDelegate.java:749)
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.resolveConflictingLaunches(MuleRuntimeLaunchDelegate.java:670)
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.launch(MuleRuntimeLaunchDelegate.java:316)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY org.mule.tooling.core 1 0 2020-01-11 14:47:37.105
+!MESSAGE While generating classpath found that C:\Users\jesus\Desktop\AnypointStudio\plugins\org.mule.tooling.server.3.9.3.ee_6.6.0.201908221657\mule\lib\endorsed\ is not a directory.
+
+!ENTRY org.mule.tooling.core 1 0 2020-01-11 14:47:37.113
+!MESSAGE While generating classpath found that C:\Users\jesus\Desktop\AnypointStudio\plugins\org.mule.tooling.server.3.9.3.ee_6.6.0.201908221657\mule\lib\endorsed\ is not a directory.
+
+!ENTRY org.mule.tooling.core 1 0 2020-01-11 14:47:37.118
+!MESSAGE While generating classpath found that C:\Users\jesus\Desktop\AnypointStudio\plugins\org.mule.tooling.server.3.9.3.ee_6.6.0.201908221657\mule\lib\endorsed\ is not a directory.
+
+!ENTRY org.mule.tooling.core 1 0 2020-01-11 14:47:37.124
+!MESSAGE While generating classpath found that C:\Users\jesus\Desktop\AnypointStudio\plugins\org.mule.tooling.server.3.9.3.ee_6.6.0.201908221657\mule\lib\endorsed\ is not a directory.
+
+!ENTRY org.mule.tooling.core 1 0 2020-01-11 14:47:37.129
+!MESSAGE While generating classpath found that C:\Users\jesus\Desktop\AnypointStudio\plugins\org.mule.tooling.server.3.9.3.ee_6.6.0.201908221657\mule\lib\endorsed\ is not a directory.
+
+!ENTRY org.mule.tooling.core 1 0 2020-01-11 14:47:37.137
+!MESSAGE While generating classpath found that C:\Users\jesus\Desktop\AnypointStudio\plugins\org.mule.tooling.server.3.9.3.ee_6.6.0.201908221657\mule\lib\endorsed\ is not a directory.
+
+!ENTRY org.mule.tooling.core 2 0 2020-01-11 14:47:37.735
+!MESSAGE Authenticator was changed to class org.mule.tooling.utils.networking.ProxyAuthenticator. Restoring default authenticator to null
+
+!ENTRY org.mule.tooling.core 2 0 2020-01-11 14:47:37.743
+!MESSAGE Authenticator was changed to class org.mule.tooling.utils.networking.ProxyAuthenticator. Restoring default authenticator to null
+
+!ENTRY org.mule.tooling.core 2 0 2020-01-11 14:47:37.752
+!MESSAGE Authenticator was changed to class org.mule.tooling.utils.networking.ProxyAuthenticator. Restoring default authenticator to null
+
+!ENTRY org.mule.tooling.core 2 0 2020-01-11 14:47:37.758
+!MESSAGE Authenticator was changed to class org.mule.tooling.utils.networking.ProxyAuthenticator. Restoring default authenticator to null
+
+!ENTRY org.mule.tooling.core 2 0 2020-01-11 14:47:37.762
+!MESSAGE Authenticator was changed to class org.mule.tooling.utils.networking.ProxyAuthenticator. Restoring default authenticator to null
+
+!ENTRY org.mule.tooling.core 2 0 2020-01-11 14:47:37.768
+!MESSAGE Authenticator was changed to class org.mule.tooling.utils.networking.ProxyAuthenticator. Restoring default authenticator to null
+
+!ENTRY org.mule.tooling.core 4 0 2020-01-11 14:49:05.861
+!MESSAGE Could not terminate launch dronemonitoring
+!STACK 0
+java.lang.RuntimeException: Could not terminate launch dronemonitoring
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.terminateLaunchSync(MuleRuntimeLaunchDelegate.java:800)
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.removeAllMuleLaunchesBut(MuleRuntimeLaunchDelegate.java:749)
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.resolveConflictingLaunches(MuleRuntimeLaunchDelegate.java:670)
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.launch(MuleRuntimeLaunchDelegate.java:316)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY org.mule.tooling.core 4 0 2020-01-11 14:49:05.877
+!MESSAGE Could not terminate launch dronemonitoring
+!STACK 0
+java.lang.RuntimeException: Could not terminate launch dronemonitoring
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.terminateLaunchSync(MuleRuntimeLaunchDelegate.java:800)
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.removeAllMuleLaunchesBut(MuleRuntimeLaunchDelegate.java:749)
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.resolveConflictingLaunches(MuleRuntimeLaunchDelegate.java:670)
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.launch(MuleRuntimeLaunchDelegate.java:316)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY org.mule.tooling.core 4 0 2020-01-11 14:51:48.788
+!MESSAGE Could not terminate launch dronemonitoring
+!STACK 0
+java.lang.RuntimeException: Could not terminate launch dronemonitoring
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.terminateLaunchSync(MuleRuntimeLaunchDelegate.java:800)
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.removeAllMuleLaunchesBut(MuleRuntimeLaunchDelegate.java:749)
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.resolveConflictingLaunches(MuleRuntimeLaunchDelegate.java:670)
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.launch(MuleRuntimeLaunchDelegate.java:316)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY org.mule.tooling.core 4 0 2020-01-11 14:51:48.809
+!MESSAGE Could not terminate launch dronemonitoring
+!STACK 0
+java.lang.RuntimeException: Could not terminate launch dronemonitoring
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.terminateLaunchSync(MuleRuntimeLaunchDelegate.java:800)
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.removeAllMuleLaunchesBut(MuleRuntimeLaunchDelegate.java:749)
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.resolveConflictingLaunches(MuleRuntimeLaunchDelegate.java:670)
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.launch(MuleRuntimeLaunchDelegate.java:316)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY org.eclipse.jface 2 0 2020-01-11 14:53:10.036
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-01-11 14:53:10.036
+!MESSAGE A conflict occurred for CTRL+SHIFT+P:
+Binding(CTRL+SHIFT+P,
+	ParameterizedCommand(Command(org.mule.tooling.ui.exportImageCommand,Export image,
+		Export image,
+		Category(org.mule.tooling.ui.commandcategory,org.mule.tooling.ui.commandcategory,Category for menu commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@38378043,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.mule.tooling.keybindings.contexts.muleStudio,,,system)
+Binding(CTRL+SHIFT+P,
+	ParameterizedCommand(Command(org.mule.tooling.ui.dfl.contribution.commands.turnOnOffPreviewCommand,Turn on/off preview,
+		Turn on/off preview,
+		Category(org.mule.tooling.ui.commandcategory,org.mule.tooling.ui.commandcategory,Category for menu commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@10c405d,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.mule.tooling.contexts.mulePropertiesEditor,,,system)
+
+!ENTRY org.mule.tooling.core 4 0 2020-01-11 14:56:11.603
+!MESSAGE Could not terminate launch dronemonitoring
+!STACK 0
+java.lang.RuntimeException: Could not terminate launch dronemonitoring
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.terminateLaunchSync(MuleRuntimeLaunchDelegate.java:800)
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.removeAllMuleLaunchesBut(MuleRuntimeLaunchDelegate.java:749)
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.resolveConflictingLaunches(MuleRuntimeLaunchDelegate.java:670)
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.launch(MuleRuntimeLaunchDelegate.java:316)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY org.mule.tooling.core 4 0 2020-01-11 14:56:11.624
+!MESSAGE Could not terminate launch dronemonitoring
+!STACK 0
+java.lang.RuntimeException: Could not terminate launch dronemonitoring
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.terminateLaunchSync(MuleRuntimeLaunchDelegate.java:800)
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.removeAllMuleLaunchesBut(MuleRuntimeLaunchDelegate.java:749)
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.resolveConflictingLaunches(MuleRuntimeLaunchDelegate.java:670)
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.launch(MuleRuntimeLaunchDelegate.java:316)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)

@@ -14,7 +14,7 @@ http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/fil
     <apachekafka:config name="Apache_Kafka__Configuration" bootstrapServers="localhost:9092" consumerPropertiesFile="..\..\..\..\..\Kafka\consumer.properties" producerPropertiesFile="..\..\..\..\..\Kafka\producer.properties" doc:name="Apache Kafka: Configuration"/>
     <vm:endpoint exchange-pattern="one-way" path="ComplexEventConsumerPath" name="ComplexEventConsumerGlobalVM" doc:name="VM"/>
     <flow name="KafkaConsumerFlow">
-        <apachekafka:consumer config-ref="Apache_Kafka__Configuration" doc:name="Apache Kafka (Streaming)" partitions="1" topic="test"/>
+        <apachekafka:consumer config-ref="Apache_Kafka__Configuration" doc:name="Apache Kafka (Streaming)" partitions="1" topic="droneMonitoring"/>
         <custom-transformer class="dronemonitoring.KafkaMessageToDroneEventTransformer" doc:name="KafkaMessageToDroneEventTransformer"/>
         <scatter-gather doc:name="Scatter-Gather">
             <logger message="===KafkaConsumerFlow: #[payload]" level="INFO" doc:name="Logger"/>
@@ -29,12 +29,12 @@ http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/fil
             <logger message="===ComplexEventRepectionAndDecisionMaking: #[payload]" level="INFO" doc:name="Logger"/>
             <processor-chain>
                 <set-payload value="Detected Alert '#[message.inboundProperties['eventPatternName']]': #[payload]" doc:name="Set Alert Payload"/>
-                <smtps:outbound-endpoint host="smtp.gmail.com" port="465" user="${email.usarname}" password="${email.password}" to="${email.to}" from="${email.from}" subject="Detected ALERT" responseTimeout="10000" doc:name="SMTP"/>
+                <smtps:outbound-endpoint host="smtp.gmail.com" port="465" user="${email.username}" password="${email.password}" to="${emailto}" from="${emailfrom}" subject="Detected Alert by CEP Engine" responseTimeout="10000" doc:name="Send Alert by Email"/>
             </processor-chain>
         </scatter-gather>
     </flow>
     <flow name="EventPatternAdditionToEsper">
-        <file:inbound-endpoint path="..\..\..\..\..\EPLPatterns\InputPatterns" responseTimeout="10000" doc:name="EPL Pattern" moveToDirectory="..\..\..\..\..\EPLPatterns\DeployedPatterns">
+        <file:inbound-endpoint path="C:\Users\jesus\Desktop\DroneMonitoring\EPLPatterns\InputPatterns" responseTimeout="10000" doc:name="EPL Pattern" moveToDirectory="C:\Users\jesus\Desktop\DroneMonitoring\EPLPatterns\DeployedPattens">
             <file:filename-regex-filter pattern=".+\.epl" caseSensitive="true"/>
         </file:inbound-endpoint>
         <file:file-to-string-transformer doc:name="File to String"/>
@@ -43,7 +43,7 @@ http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/fil
         </component>
         <choice-exception-strategy doc:name="Choice Exception Strategy">
             <catch-exception-strategy when="exception.causeMatches('com.espertech.esper.*')" doc:name="Syntax Error in EventPattern Code">
-                <file:outbound-endpoint path="..\..\..\..\..\EPLPatterns\ErrorPatterns" responseTimeout="10000" doc:name="Incorrect EventPattern Code"/>
+                <file:outbound-endpoint path="C:\Users\jesus\Desktop\DroneMonitoring\EPLPatterns\ErrorPattenrs" responseTimeout="10000" doc:name="Incorrect EventPattern Code"/>
             </catch-exception-strategy>
         </choice-exception-strategy>
     </flow>

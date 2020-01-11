@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:file="http://www.mulesoft.org/schema/mule/file" xmlns:smtps="http://www.mulesoft.org/schema/mule/smtps" xmlns:smtp="http://www.mulesoft.org/schema/mule/smtp" xmlns:vm="http://www.mulesoft.org/schema/mule/vm" xmlns:apachekafka="http://www.mulesoft.org/schema/mule/apachekafka" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/apachekafka http://www.mulesoft.org/schema/mule/apachekafka/current/mule-apachekafka.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/smtp http://www.mulesoft.org/schema/mule/smtp/current/mule-smtp.xsd
+http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd
+http://www.mulesoft.org/schema/mule/smtps http://www.mulesoft.org/schema/mule/smtps/current/mule-smtps.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd">
+    <apachekafka:config name="Apache_Kafka__Configuration" bootstrapServers="localhost:9092" consumerPropertiesFile="..\..\..\..\..\Kafka\consumer.properties" producerPropertiesFile="..\..\..\..\..\Kafka\producer.properties" doc:name="Apache Kafka: Configuration"/>
+    <vm:endpoint exchange-pattern="one-way" path="ComplexEventConsumerPath" name="ComplexEventConsumerGlobalVM" doc:name="VM"/>
+    <flow name="KafkaConsumerFlow">
+        <apachekafka:consumer config-ref="Apache_Kafka__Configuration" doc:name="Apache Kafka (Streaming)" partitions="1" topic="test"/>
+        <custom-transformer class="dronemonitoring.KafkaMessageToDroneEventTransformer" doc:name="KafkaMessageToDroneEventTransformer"/>
+        <scatter-gather doc:name="Scatter-Gather">
+            <logger message="===KafkaConsumerFlow: #[payload]" level="INFO" doc:name="Logger"/>
+            <component doc:name="SendDroneEventToCEPEngine">
+                <singleton-object class="dronemonitoring.SendDroneEventToCEPEngine"/>
+            </component>
+        </scatter-gather>
+    </flow>
+    <flow name="ComplexEventReceptionAndDecisionMaking">
+        <vm:inbound-endpoint exchange-pattern="one-way" ref="ComplexEventConsumerGlobalVM" doc:name="Complex Event Consumer"/>
+        <scatter-gather doc:name="Scatter-Gather">
+            <logger message="===ComplexEventRepectionAndDecisionMaking: #[payload]" level="INFO" doc:name="Logger"/>
+            <processor-chain>
+                <set-payload value="Detected Alert '#[message.inboundProperties['eventPatternName']]': #[payload]" doc:name="Set Alert Payload"/>
+                <smtps:outbound-endpoint host="smtp.gmail.com" port="465" user="${email.usarname}" password="${email.password}" to="${email.to}" from="${email.from}" subject="Detected ALERT" responseTimeout="10000" doc:name="SMTP"/>
+            </processor-chain>
+        </scatter-gather>
+    </flow>
+    <flow name="EventPatternAdditionToEsper">
+        <file:inbound-endpoint path="..\..\..\..\..\EPLPatterns\InputPatterns" responseTimeout="10000" doc:name="EPL Pattern" moveToDirectory="..\..\..\..\..\EPLPatterns\DeployedPatterns">
+            <file:filename-regex-filter pattern=".+\.epl" caseSensitive="true"/>
+        </file:inbound-endpoint>
+        <file:file-to-string-transformer doc:name="File to String"/>
+        <component doc:name="Add Event Pattern to Esper Engine">
+            <singleton-object class="dronemonitoring.AddEventPatternToEsperComponent"/>
+        </component>
+        <choice-exception-strategy doc:name="Choice Exception Strategy">
+            <catch-exception-strategy when="exception.causeMatches('com.espertech.esper.*')" doc:name="Syntax Error in EventPattern Code">
+                <file:outbound-endpoint path="..\..\..\..\..\EPLPatterns\ErrorPatterns" responseTimeout="10000" doc:name="Incorrect EventPattern Code"/>
+            </catch-exception-strategy>
+        </choice-exception-strategy>
+    </flow>
+</mule>

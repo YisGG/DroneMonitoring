@@ -1,0 +1,4 @@
+@Name("testPattern")
+insert into testPattern
+select "Alerta" as alert, e.*
+from pattern[e = droneEvent(e.droneId = 10)]
