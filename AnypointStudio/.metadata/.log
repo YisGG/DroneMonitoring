@@ -6660,3 +6660,9 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
 !ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2020-01-11 11:53:47.981
 !MESSAGE No repository found at http://studio.mulesoft.org/r6/apikit-for-soap.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2020-01-11 11:54:15.010
+!MESSAGE No repository found at http://studio.mulesoft.org/r6/apikit-for-odata.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2020-01-11 11:54:15.016
+!MESSAGE No repository found at http://studio.mulesoft.org/r6/apikit-for-odata.
