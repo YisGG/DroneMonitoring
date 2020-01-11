@@ -1,0 +1,56 @@
+package dronemonitoring;
+
+import java.io.IOException;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import org.codehaus.jackson.map.ObjectMapper;
+import org.mule.api.MuleMessage;
+import org.mule.api.transformer.TransformerException;
+import org.mule.transformer.AbstractMessageTransformer;
+
+public class KafkaMessageToDroneEventTransformer extends AbstractMessageTransformer{
+
+	@Override
+	public synchronized Map<String, Object> transformMessage(MuleMessage message, String outputEncoding) 
+	throws TransformerException {
+		// LinkedHashMap will iterate in the order in which the entries were put into the map
+		Map<String, Object> eventMap = new LinkedHashMap<String, Object>();
+		String kafkaMessage = "EMPTY";
+		
+		try {
+			//Obtenemos los datos del mensaje de kafka que viene desde el payload
+			kafkaMessage = message.getPayloadAsString();
+			String[] droneData = kafkaMessage.split("><");
+			System.out.println(droneData.length);
+			for(int k=0;k<droneData.length;k++) {
+				System.out.println(droneData[k]);
+			}
+			
+			//Introducimos los datos en el eventMap
+			eventMap.put("droneId", droneData[0]);
+			eventMap.put("timeStamp", Integer.parseInt(droneData[1].trim()));
+			String[] coord = droneData[2].split(",");
+			eventMap.put("posX", Integer.parseInt(coord[0].trim()));
+			eventMap.put("posY", Integer.parseInt(coord[1].trim()));
+			String[] distanceSensors = droneData[3].split(",");
+			for(int h=0; h<distanceSensors.length; h++)
+				System.out.println(distanceSensors[h]);
+			eventMap.put("distanceUp", Integer.parseInt(distanceSensors[0].trim()));
+			eventMap.put("distanceDown", Integer.parseInt(distanceSensors[1].trim()));
+			eventMap.put("distanceLeft", Integer.parseInt(distanceSensors[2].trim()));
+			if (distanceSensors[3] instanceof java.lang.String) {
+		      System.out.println("is a String");
+		    }
+			eventMap.put("distanceRigth", Integer.parseInt(distanceSensors[3].trim()));
+			
+		}catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }		
+		
+		System.out.println("===droneEvent created: " + eventMap);
+		return eventMap;
+	}
+}

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:smtp="http://www.mulesoft.org/schema/mule/smtp" xmlns:vm="http://www.mulesoft.org/schema/mule/vm" xmlns:apachekafka="http://www.mulesoft.org/schema/mule/apachekafka" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/apachekafka http://www.mulesoft.org/schema/mule/apachekafka/current/mule-apachekafka.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/smtp http://www.mulesoft.org/schema/mule/smtp/current/mule-smtp.xsd
+http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd">
+    <apachekafka:config name="Apache_Kafka__Configuration" bootstrapServers="localhost:9092" consumerPropertiesFile="..\..\..\..\..\Kafka\consumer.properties" producerPropertiesFile="..\..\..\..\..\Kafka\producer.properties" doc:name="Apache Kafka: Configuration"/>
+    <vm:endpoint exchange-pattern="one-way" path="ComplexEventConsumerPath" name="ComplexEventConsumerGlobalVM" doc:name="VM"/>
+    <flow name="KafkaConsumerFlow">
+        <apachekafka:consumer config-ref="Apache_Kafka__Configuration" doc:name="Apache Kafka (Streaming)" partitions="1" topic="test"/>
+        <custom-transformer class="dronemonitoring.KafkaMessageToDroneEventTransformer" doc:name="KafkaMessageToDroneEventTransformer"/>
+        <scatter-gather doc:name="Scatter-Gather">
+            <logger message="===KafkaConsumerFlow: #[payload]" level="INFO" doc:name="Logger"/>
+            <component doc:name="SendDroneEventToCEPEngine">
+                <singleton-object class="dronemonitoring.SendDroneEventToCEPEngine"/>
+            </component>
+        </scatter-gather>
+    </flow>
+    <flow name="ComplexEventReceptionAndDecisionMaking">
+        <vm:inbound-endpoint exchange-pattern="one-way" ref="VM" doc:name="Complex Event Consumer"/>
+        <scatter-gather doc:name="Scatter-Gather">
+            <logger message="===ComplexEventRepectionAndDecisionMaking: #[payload]" level="INFO" doc:name="Logger"/>
+            <processor-chain>
+                <set-payload value="Detected Alert '#[message.inboundProperties['eventPatternName']]': #[payload]" doc:name="Set Payload"/>
+                <smtp:outbound-endpoint host="localhost" responseTimeout="10000" doc:name="SMTP"/>
+            </processor-chain>
+        </scatter-gather>
+    </flow>
+</mule>

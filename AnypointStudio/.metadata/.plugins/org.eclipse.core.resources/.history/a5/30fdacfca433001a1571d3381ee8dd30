@@ -1,0 +1,48 @@
+package dronemonitoring;
+
+import java.io.IOException;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import org.codehaus.jackson.map.ObjectMapper;
+import org.mule.api.MuleMessage;
+import org.mule.api.transformer.TransformerException;
+import org.mule.transformer.AbstractMessageTransformer;
+
+public class KafkaMessageToDroneEventTransformer extends AbstractMessageTransformer{
+
+	@Override
+	public synchronized Map<String, Object> transformMessage(MuleMessage message, String outputEncoding) 
+	throws TransformerException {
+		// LinkedHashMap will iterate in the order in which the entries were put into the map
+		Map<String, Object> eventMap = new LinkedHashMap<String, Object>();
+		String kafkaMessage = "EMPTY";
+		
+		try {
+			//Obtenemos los datos del mensaje de kafka que viene desde el payload
+			kafkaMessage = message.getPayloadAsString();
+			String[] droneData = kafkaMessage.split("><");
+			System.out.println(droneData.length);
+			
+			//Introducimos los datos en el eventMap
+			eventMap.put("droneId", droneData[1]);
+			eventMap.put("timeStamp", Integer.parseInt(droneData[2]));
+			String[] coord = droneData[3].split(",");
+			eventMap.put("posX", Integer.parseInt(coord[0]));
+			eventMap.put("posY", Integer.parseInt(coord[1]));
+			String[] distanceSensors = droneData[4].split(",");
+			eventMap.put("distanceUp", Integer.parseInt(distanceSensors[0]));
+			eventMap.put("distanceDown", Integer.parseInt(distanceSensors[1]));
+			eventMap.put("distanceLeft", Integer.parseInt(distanceSensors[2]));
+			eventMap.put("distanceRigth", Integer.parseInt(distanceSensors[3]));
+			
+		}catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }		
+		
+		System.out.println("===droneEvent created: " + eventMap);
+		return eventMap;
+	}
+}

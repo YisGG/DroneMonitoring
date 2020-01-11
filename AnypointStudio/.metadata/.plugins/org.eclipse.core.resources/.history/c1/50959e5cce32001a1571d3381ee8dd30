@@ -1,0 +1,5 @@
+package dronemonitoring;
+
+public class KafkaReceptor {
+
+}

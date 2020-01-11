@@ -1,0 +1,30 @@
+package dronemonitoring;
+
+import java.io.IOException;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import org.codehaus.jackson.map.ObjectMapper;
+import org.mule.api.MuleMessage;
+import org.mule.api.transformer.TransformerException;
+import org.mule.transformer.AbstractMessageTransformer;
+
+public class KafkaMessageToDroneEventTransformer extends AbstractMessageTransformer{
+
+	@Override
+	public synchronized String transformMessage(MuleMessage message, String outputEncoding) 
+	throws TransformerException {
+		// LinkedHashMap will iterate in the order in which the entries were put into the map
+		Map<String, Object> eventMap = new LinkedHashMap<String, Object>();
+		String kafkaMessage = "EMPTY";
+		
+		try {
+			kafkaMessage = message.getPayloadAsString();
+		}catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }		
+		return "Transformador " + kafkaMessage;
+	}
+}
