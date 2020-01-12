@@ -37,6 +37,7 @@ public class KafkaMessageToDroneEventTransformer extends AbstractMessageTransfor
 			eventPayLoad.put("distanceDown", Integer.parseInt(distanceSensors[1].trim()));
 			eventPayLoad.put("distanceLeft", Integer.parseInt(distanceSensors[2].trim()));
 			eventPayLoad.put("distanceRigth", Integer.parseInt(distanceSensors[3].trim()));
+			eventPayLoad.put("distanceChiefDrone", Double.parseDouble(droneData[4].trim()));
 			
 			eventMap.put("droneEvent", eventPayLoad);
 			
@@ -46,7 +47,7 @@ public class KafkaMessageToDroneEventTransformer extends AbstractMessageTransfor
             e.printStackTrace();
         }		
 		
-		System.out.println("===droneEvent created: " + eventMap);
+		//System.out.println("===droneEvent created: " + eventMap);
 		return eventMap;
 	}
 }

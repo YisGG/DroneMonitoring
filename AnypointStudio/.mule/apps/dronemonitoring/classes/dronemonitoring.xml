@@ -16,21 +16,18 @@ http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/fil
     <flow name="KafkaConsumerFlow">
         <apachekafka:consumer config-ref="Apache_Kafka__Configuration" doc:name="Apache Kafka (Streaming)" partitions="1" topic="droneMonitoring"/>
         <custom-transformer class="dronemonitoring.KafkaMessageToDroneEventTransformer" doc:name="KafkaMessageToDroneEventTransformer"/>
-        <scatter-gather doc:name="Scatter-Gather">
-            <logger message="===KafkaConsumerFlow: #[payload]" level="INFO" doc:name="Logger"/>
-            <component doc:name="SendDroneEventToCEPEngine">
-                <singleton-object class="dronemonitoring.SendDroneEventToCEPEngine"/>
-            </component>
-        </scatter-gather>
+        <component doc:name="SendDroneEventToCEPEngine">
+            <singleton-object class="dronemonitoring.SendDroneEventToCEPEngine"/>
+        </component>
     </flow>
     <flow name="ComplexEventReceptionAndDecisionMaking">
         <vm:inbound-endpoint exchange-pattern="one-way" ref="ComplexEventConsumerGlobalVM" doc:name="Complex Event Consumer"/>
         <scatter-gather doc:name="Scatter-Gather">
-            <logger message="===ComplexEventRepectionAndDecisionMaking: #[payload]" level="INFO" doc:name="Logger"/>
             <processor-chain>
                 <set-payload value="Detected Alert '#[message.inboundProperties['eventPatternName']]': #[payload]" doc:name="Set Alert Payload"/>
                 <smtps:outbound-endpoint host="smtp.gmail.com" port="465" user="${email.username}" password="${email.password}" to="${emailto}" from="${emailfrom}" subject="Detected Alert by CEP Engine" responseTimeout="10000" doc:name="Send Alert by Email"/>
             </processor-chain>
+            <logger message="===ComplexEventRepectionAndDecisionMaking: #[payload]" level="INFO" doc:name="Logger"/>
         </scatter-gather>
     </flow>
     <flow name="EventPatternAdditionToEsper">

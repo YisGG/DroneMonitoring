@@ -6864,3 +6864,125 @@ java.lang.RuntimeException: Could not terminate launch dronemonitoring
 	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
 	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY org.mule.tooling.core 4 0 2020-01-11 18:59:47.659
+!MESSAGE Could not terminate launch dronemonitoring
+!STACK 0
+java.lang.RuntimeException: Could not terminate launch dronemonitoring
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.terminateLaunchSync(MuleRuntimeLaunchDelegate.java:800)
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.removeAllMuleLaunchesBut(MuleRuntimeLaunchDelegate.java:749)
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.resolveConflictingLaunches(MuleRuntimeLaunchDelegate.java:670)
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.launch(MuleRuntimeLaunchDelegate.java:316)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY org.mule.tooling.core 4 0 2020-01-11 18:59:47.688
+!MESSAGE Could not terminate launch dronemonitoring
+!STACK 0
+java.lang.RuntimeException: Could not terminate launch dronemonitoring
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.terminateLaunchSync(MuleRuntimeLaunchDelegate.java:800)
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.removeAllMuleLaunchesBut(MuleRuntimeLaunchDelegate.java:749)
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.resolveConflictingLaunches(MuleRuntimeLaunchDelegate.java:670)
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.launch(MuleRuntimeLaunchDelegate.java:316)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY org.mule.tooling.messageflow 4 0 2020-01-12 00:14:54.551
+!MESSAGE An error occurred while creating error markers
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Marker id 335 not found.
+	at org.eclipse.core.internal.resources.Marker.checkInfo(Marker.java:60)
+	at org.eclipse.core.internal.resources.Marker.setAttribute(Marker.java:257)
+	at org.mule.tooling.core.generator.errors.messageflow.MessageFlowEntityError.createMarker(MessageFlowEntityError.java:48)
+	at org.mule.tooling.messageflow.editor.MultiPageMessageFlowEditor$OnValidateFinishedListener.updateErrorMarkers(MultiPageMessageFlowEditor.java:1721)
+	at org.mule.tooling.messageflow.editor.MultiPageMessageFlowEditor$OnValidateFinishedListener.updateErrorMarkers(MultiPageMessageFlowEditor.java:1712)
+	at org.mule.tooling.messageflow.editor.MultiPageMessageFlowEditor$OnValidateFinishedListener.done(MultiPageMessageFlowEditor.java:1695)
+	at org.eclipse.core.internal.jobs.JobListeners.doNotify(JobListeners.java:77)
+	at org.eclipse.core.internal.jobs.JobListeners.done(JobListeners.java:115)
+	at org.eclipse.core.internal.jobs.JobManager.endJob(JobManager.java:695)
+	at org.eclipse.core.internal.jobs.WorkerPool.endJob(WorkerPool.java:114)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:78)
+!SUBENTRY 1 org.eclipse.core.resources 4 376 2020-01-12 00:14:54.553
+!MESSAGE Marker id 335 not found.
+
+!ENTRY org.mule.tooling.messageflow 4 0 2020-01-12 00:14:54.627
+!MESSAGE An error occurred while creating error markers
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Marker id 335 not found.
+	at org.eclipse.core.internal.resources.Marker.checkInfo(Marker.java:60)
+	at org.eclipse.core.internal.resources.Marker.setAttribute(Marker.java:257)
+	at org.mule.tooling.core.generator.errors.messageflow.MessageFlowEntityError.createMarker(MessageFlowEntityError.java:48)
+	at org.mule.tooling.messageflow.editor.MultiPageMessageFlowEditor$OnValidateFinishedListener.updateErrorMarkers(MultiPageMessageFlowEditor.java:1721)
+	at org.mule.tooling.messageflow.editor.MultiPageMessageFlowEditor$OnValidateFinishedListener.updateErrorMarkers(MultiPageMessageFlowEditor.java:1712)
+	at org.mule.tooling.messageflow.editor.MultiPageMessageFlowEditor$OnValidateFinishedListener.done(MultiPageMessageFlowEditor.java:1695)
+	at org.eclipse.core.internal.jobs.JobListeners.doNotify(JobListeners.java:77)
+	at org.eclipse.core.internal.jobs.JobListeners.done(JobListeners.java:115)
+	at org.eclipse.core.internal.jobs.JobManager.endJob(JobManager.java:695)
+	at org.eclipse.core.internal.jobs.WorkerPool.endJob(WorkerPool.java:114)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:78)
+!SUBENTRY 1 org.eclipse.core.resources 4 376 2020-01-12 00:14:54.627
+!MESSAGE Marker id 335 not found.
+
+!ENTRY org.mule.tooling.core 4 0 2020-01-12 00:56:01.264
+!MESSAGE Could not terminate launch dronemonitoring
+!STACK 0
+java.lang.RuntimeException: Could not terminate launch dronemonitoring
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.terminateLaunchSync(MuleRuntimeLaunchDelegate.java:800)
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.removeAllMuleLaunchesBut(MuleRuntimeLaunchDelegate.java:749)
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.resolveConflictingLaunches(MuleRuntimeLaunchDelegate.java:670)
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.launch(MuleRuntimeLaunchDelegate.java:316)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY org.mule.tooling.core 4 0 2020-01-12 00:56:01.272
+!MESSAGE Could not terminate launch dronemonitoring
+!STACK 0
+java.lang.RuntimeException: Could not terminate launch dronemonitoring
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.terminateLaunchSync(MuleRuntimeLaunchDelegate.java:800)
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.removeAllMuleLaunchesBut(MuleRuntimeLaunchDelegate.java:749)
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.resolveConflictingLaunches(MuleRuntimeLaunchDelegate.java:670)
+	at org.mule.tooling.runtime.launch.MuleRuntimeLaunchDelegate.launch(MuleRuntimeLaunchDelegate.java:316)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+!SESSION 2020-01-12 01:06:53.864 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_231
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_ES
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:\Users\jesus\Desktop\DroneMonitoring\AnypointStudio
+
+!ENTRY org.mule.tooling.core 2 0 2020-01-12 01:06:57.121
+!MESSAGE C:\Users\jesus\.m2\repository does not exist or contain a maven repository
+
+!ENTRY org.mule.tooling.core 2 0 2020-01-12 01:06:57.121
+!MESSAGE C:\Users\jesus\.m2\repository does not exist or contain a maven repository
+
+!ENTRY org.mule.tooling.core 2 0 2020-01-12 01:06:59.956
+!MESSAGE Unable to resolve source directory for server org.mule.tooling.server.3.9.3.ee
+
+!ENTRY org.mule.tooling.core 2 0 2020-01-12 01:06:59.956
+!MESSAGE Unable to resolve source directory for server org.mule.tooling.server.3.9.3.ee
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2020-01-12 01:07:15.651
+!MESSAGE No repository found at http://studio.mulesoft.org/r6/apikit-for-soap.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2020-01-12 01:07:15.668
+!MESSAGE No repository found at http://studio.mulesoft.org/r6/apikit-for-soap.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2020-01-12 01:07:31.124
+!MESSAGE No repository found at http://studio.mulesoft.org/r6/apikit-for-odata.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2020-01-12 01:07:31.141
+!MESSAGE No repository found at http://studio.mulesoft.org/r6/apikit-for-odata.

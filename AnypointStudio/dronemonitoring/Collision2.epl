@@ -1,0 +1,12 @@
+@Name("Collision")
+Insert Into Collision
+Select "Colision inminente, retrasando una unidad los drones" as Alert
+From Pattern[
+    every(
+        e1 = droneEvent(e1.droneId = "10") ->
+        e2 = droneEvent(
+                e2.timeStamp    =   e1.timeStamp and
+                e2.droneId      !=  e1.droneId
+        )
+    )
+]

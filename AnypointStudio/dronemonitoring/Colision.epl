@@ -1,0 +1,19 @@
+@Name("Colision")
+Insert Into Colision
+Select "Colision inminente retrasar un paso" as Alert
+From Pattern[
+    every(
+        e1 = droneEvent and
+        e2 = droneEvent(e2.timeStamp=e1.timeStamp and e2.droneId!=e1.droneId) and
+        e3 = droneEvent(e3.timeStamp=e2.timeStamp and e3.droneId!=e1.droneId and e3.droneId!=e2.droneId) and
+        e4 = droneEvent(e4.timeStamp=e3.timeStamp and e4.droneId!=e1.droneId and e4.droneId!=e2.droneId and e4.droneId!=e3.droneID) and
+        e5 = droneEvent(e5.timeStamp=e4.timeStamp and e5.droneId!=e1.droneId and e5.droneId!=e2.droneId and e5.droneId!=e3.droneID and e5.droneId!=e4.droneId) and
+        (
+            e1.distanceUp<1 or e1.distanceDown<1 or e1.distanceLeft<1 or e1.distanceRigth<1 or
+            e2.distanceUp<1 or e2.distanceDown<1 or e2.distanceLeft<1 or e2.distanceRigth<1 or
+            e3.distanceUp<1 or e3.distanceDown<1 or e3.distanceLeft<1 or e3.distanceRigth<1 or
+            e4.distanceUp<1 or e4.distanceDown<1 or e4.distanceLeft<1 or e4.distanceRigth<1 or
+            e5.distanceUp<1 or e5.distanceDown<1 or e5.distanceLeft<1 or e5.distanceRigth<1
+        )
+    )
+]

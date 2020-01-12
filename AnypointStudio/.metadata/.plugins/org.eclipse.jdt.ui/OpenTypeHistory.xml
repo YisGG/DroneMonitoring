@@ -2,4 +2,5 @@
 <typeInfoHistroy>
 <typeInfo handle="=dronemonitoring/src\/main\/java&lt;dronemonitoring{KafkaMessageToDroneEventTransformer.java[KafkaMessageToDroneEventTransformer" modifiers="1" timestamp="1578695215794"/>
 <typeInfo handle="=dronemonitoring/src\/main\/java&lt;dronemonitoring{SendDroneEventToCEPEngine.java[SendDroneEventToCEPEngine" modifiers="1" timestamp="1578695307744"/>
+<typeInfo handle="=dronemonitoring/src\/main\/java&lt;dronemonitoring{AddEventPatternToEsperComponent.java[AddEventPatternToEsperComponent" modifiers="1" timestamp="1578742073774"/>
 </typeInfoHistroy>
